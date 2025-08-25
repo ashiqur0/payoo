@@ -1,14 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <h1>Home Welcome</h1>
+
+<body class="bg-[#f4f5f7] h-[100vh]">
+
+    <header class="max-w-lg mx-auto bg-white rounded-b-3xl py-6">
+        <nav class="min-h-[50px] flex justify-between items-center border-b-1 border-gray-400 px-6">
+            <div class="flex jsutify-center items-center">
+                <img src="./assets/Group.png" alt="" class="h-[50px]">
+                <div class="ml-3">
+                    <h2 class="font-bold">$<span>45000</span></h2>
+                    <p class="text-[#08080880]">Available Balance</p>
+                </div>
+            </div>
+
+            <div>
+                <button class="btn btn-soft rounded-2 text-[#08080880]"><i
+                        class="fa-solid fa-arrow-right-from-bracket rotate-180 text-gray-700"></i> Default</button>
+            </div>
+        </nav>
+
+        <div class="max-w-lg mx-auto p-6">
+            <h1 class="text-[24px] font-bold">🔥 Welcome to Payooo!</h1>
+            <p class="text-[#08080880]">Enjoy easy and convenient financial services with us. Cash out charge is low and
+            </p>
+        </div>
+
+        <div class="max-w-lg mx-auto px-6 h-50 grid grid-cols-3 gap-4">
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Add Money</h2>
+            </div>
+        </div>
+    </header>
+
+    <section class="all-form-section max-w-lg mx-auto p-6">
+        <div>
+            <h1>Add Money</h1>
+        </div>
+        <form>
+            <div>
+                <h1>Select back</h1>
+                <select class="select">
+                    <option disabled selected>Pick a color</option>
+                    <option>Crimson</option>
+                    <option>Amber</option>
+                    <option>Velvet</option>
+                </select>
+            </div>
+        </form>
+    </section>
     <script src="./home.js"></script>
 </body>
+
 </html>
