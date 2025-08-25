@@ -19,13 +19,13 @@
             <div class="flex jsutify-center items-center">
                 <img src="./assets/Group.png" alt="" class="h-[50px]">
                 <div class="ml-3">
-                    <h2 class="font-bold">$<span>45000</span></h2>
+                    <h2 class="font-bold">$<span id="current-balance">45000</span></h2>
                     <p class="text-[#08080880]">Available Balance</p>
                 </div>
             </div>
 
             <div>
-                <button class="btn btn-soft rounded-xl text-[#08080880] border-1 border-gray-300"><i
+                <button class="btn btn-soft rounded-xl text-[#08080880] bg-white border-1 border-gray-300"><i
                         class="fa-solid fa-arrow-right-from-bracket rotate-180 text-gray-700"></i> Default</button>
             </div>
         </nav>
@@ -42,24 +42,24 @@
                 <h2 class="text-center mt-2">Add Money</h2>
             </div>
             <div class="border-2 border-gray-300 p-3 rounded-lg">
-                <img src="./assets/wallet1.png" alt="" class="mx-auto">
-                <h2 class="text-center mt-2">Add Money</h2>
+                <img src="./assets/send1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Cashout</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/money1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Transfer Money</h2>
+            </div>
+            <div class="border-2 border-gray-300 p-3 rounded-lg">
+                <img src="./assets/bonus1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Get Bonus</h2>
             </div>
             <div class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/wallet1.png" alt="" class="mx-auto">
-                <h2 class="text-center mt-2">Add Money</h2>
+                <h2 class="text-center mt-2">Pay Bill</h2>
             </div>
             <div class="border-2 border-gray-300 p-3 rounded-lg">
-                <img src="./assets/wallet1.png" alt="" class="mx-auto">
-                <h2 class="text-center mt-2">Add Money</h2>
-            </div>
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
-                <img src="./assets/wallet1.png" alt="" class="mx-auto">
-                <h2 class="text-center mt-2">Add Money</h2>
-            </div>
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
-                <img src="./assets/wallet1.png" alt="" class="mx-auto">
-                <h2 class="text-center mt-2">Add Money</h2>
+                <img src="./assets/transaction1.png" alt="" class="mx-auto">
+                <h2 class="text-center mt-2">Transactions</h2>
             </div>
         </div>
     </header>
@@ -83,7 +83,7 @@
             </div>
             <div class="mt-5">
                 <label class="font-semibold" for="">Amount to Add</label><br>
-                <input id="" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                <input id="add-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
                     placeholder="Add Amount to withdraw" />
             </div>
             <div class="mt-5">
@@ -91,10 +91,10 @@
                 <input id="pin-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
                     placeholder="Enter 4 digit pin number" />
             </div>
-            <button id="" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Add Money</button>
+            <button id="add-money-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Add Money</button>
         </form>
     </section>
-    
+
     <script src="./home.js"></script>
 </body>
 
