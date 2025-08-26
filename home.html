@@ -12,7 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#f4f5f7] h-full">
+<body class="bg-[#f4f5f7] h-full font-outfit">
 
     <header class="max-w-lg mx-auto bg-white rounded-b-3xl py-6">
         <nav class="min-h-[50px] flex justify-between items-center border-b-1 border-gray-400 pb-6 px-6">
@@ -25,7 +25,9 @@
             </div>
 
             <div>
-                <button class="btn btn-soft rounded-xl text-[#08080880] bg-white hover:bg-gray-100 border-1 border-gray-300"><i class="fa-solid fa-arrow-right-from-bracket rotate-180 text-gray-700"></i> Default</button>
+                <button
+                    class="btn btn-soft rounded-xl text-[#08080880] bg-white hover:bg-gray-100 border-1 border-gray-300"><i
+                        class="fa-solid fa-arrow-right-from-bracket rotate-180 text-gray-700"></i> Log Out</button>
             </div>
         </nav>
 
@@ -36,27 +38,27 @@
         </div>
 
         <div class="max-w-lg mx-auto px-6 h-50 grid grid-cols-3 gap-4">
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
+            <div id="add-money-option" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/wallet1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Add Money</h2>
             </div>
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
+            <div id="cashout-option" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/send1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Cashout</h2>
             </div>
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
+            <div id="transfer-money-option" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/money1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Transfer Money</h2>
             </div>
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
+            <div id="get-bonus-option" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/bonus1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Get Bonus</h2>
             </div>
             <div class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/wallet1.png" alt="" class="mx-auto">
-                <h2 class="text-center mt-2">Pay Bill</h2>
+                <h2 id="paybill-option" class="text-center mt-2">Pay Bill</h2>
             </div>
-            <div class="border-2 border-gray-300 p-3 rounded-lg">
+            <div id="transaction-option" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/transaction1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Transactions</h2>
             </div>
@@ -64,34 +66,70 @@
     </header>
 
     <section class="all-form-section max-w-lg mx-auto p-6 pb-19">
-        <h1 class="text-[18px] font-semibold">Add Money</h1>
-        <form class="p-6 bg-white rounded-2xl mt-6">
-            <div>
-                <h1 class="font-semibold">Select a back</h1>
-                <select id="bank" class="select bg-[#f4f5f7] mt-3 w-full rounded-3xl">
-                    <option disabled selected>Select a back</option>
-                    <option>Dutch Bangla Bank</option>
-                    <option>Brac Bank </option>
-                    <option>Midland Bank</option>
-                </select>
-            </div>
-            <div class="mt-5">
-                <label class="font-semibold" for="">Bank Account Number</label><br>
-                <input id="account-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
-                    placeholder="Enter 11 digit account number" />
-            </div>
-            <div class="mt-5">
-                <label class="font-semibold" for="">Amount to Add</label><br>
-                <input id="add-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
-                    placeholder="Add Amount to withdraw" />
-            </div>
-            <div class="mt-5">
-                <label class="font-semibold" for="">Pin Number</label><br>
-                <input id="pin-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
-                    placeholder="Enter 4 digit pin number" />
-            </div>
-            <button id="add-money-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Add Money</button>
-        </form>
+        <div id="add-money-parent" style="display: none;">
+            <h1 class="text-[18px] font-semibold">Add Money</h1>
+            <form class="p-6 bg-white rounded-2xl mt-6">
+                <div>
+                    <h1 class="font-semibold">Select a back</h1>
+                    <select id="bank" class="select bg-[#f4f5f7] mt-3 w-full rounded-3xl">
+                        <option disabled selected>Select a back</option>
+                        <option>Dutch Bangla Bank</option>
+                        <option>Brac Bank </option>
+                        <option>Midland Bank</option>
+                    </select>
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Bank Account Number</label><br>
+                    <input id="account-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter 11 digit account number" />
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Amount to Add</label><br>
+                    <input id="add-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Add Amount to withdraw" />
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Pin Number</label><br>
+                    <input id="pin-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter 4 digit pin number" />
+                </div>
+                <button id="add-money-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Add
+                    Money</button>
+            </form>
+        </div>
+        <div id="cash-out-parent" style="display: none;">
+            <h1 class="my-5 font-bold">Cash out</h1>
+            <form class="p-6 bg-white rounded-2xl mt-6">
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Agent Number</label><br>
+                    <input id="agent-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter 11 digit number" />
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Amount</label><br>
+                    <input id="cashout-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter amount to withdraw" />
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Pin Number</label><br>
+                    <input id="pin-number-cashout" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter 4 digit pin number" />
+                </div>
+                <button id="withdraw-money-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Withdraw Money</button>
+            </form>
+        </div>
+        <div id="transfer-money-parent" style="display: none;">
+            <h1 class="my-5 font-bold">Transfer Money</h1>
+        </div>
+        <div id="get-bonus-parent" style="display: none;">
+            <h1 class="my-5 font-bold">Get Bonus</h1>
+        </div>
+        <div id="pay-bill-parant" style="display: none;">
+            <h1 class="my-5 font-bold">Pay Bill</h1>
+        </div>
+        <div id="transaction-parant" style="display: none;">
+            <h1 class="my-5 font-bold">Transactions</h1>
+        </div>
     </section>
 
     <script src="./home.js"></script>
