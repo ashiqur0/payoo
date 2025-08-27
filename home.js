@@ -1,57 +1,30 @@
-document.getElementById('add-money-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    const currentBalance = parseInt(document.getElementById('current-balance').innerText);
-    const bank = document.getElementById('bank').value;
-    const accountNumber = document.getElementById('account-number').value;
-    const addMoney = parseInt(document.getElementById('add-amount').value);
-    const pin = parseInt(document.getElementById('pin-number').value);
+/** Shared Code / Reusable Function */
+function getTextValue(id) {
+    return parseInt(document.getElementById(id).innerText);
+}
 
-    if (bank === 'Select a back' || accountNumber != '01643496398' || addMoney < 0 || pin !== 2244) {
-        alert('invalid credentials');
-        return;        
-    } else {
-        document.getElementById('current-balance').innerText = currentBalance + addMoney;
-        document.getElementById('bank').innerHTML = `
-        <option disabled selected>Select a back</option>
-        <option>Dutch Bangla Bank</option>
-        <option>Brac Bank </option>
-        <option>Midland Bank</option>
-        `
-        document.getElementById('account-number').value = '';
-        document.getElementById('add-amount').value = '';
-        document.getElementById('pin-number').value = '';
-    }    
-});
+function getInputValue(id) {
+    return parseInt(document.getElementById(id).value);
+}
 
-document.getElementById('withdraw-money-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    const currentBalance = parseInt(document.getElementById('current-balance').innerText);
-    const agentNumber = document.getElementById('agent-number').value;
-    const cashout = parseInt(document.getElementById('cashout-amount').value);
-    const pin = parseInt(document.getElementById('pin-number-cashout').value);
-
-    if (agentNumber != '01643496398' || cashout < 0 || cashout > currentBalance || pin !== 2244) {
-        alert('invalid credentials');
-        return;        
-    } else {
-        document.getElementById('current-balance').innerText = currentBalance - cashout;
-        document.getElementById('agent-number').value = '';
-        document.getElementById('cashout-amount').value = '';
-        document.getElementById('pin-number-cashout').value = '';
+function removeFieldValue(fieldValue) {
+    for (const field of fieldValue) {
+        document.getElementById(field).value = '';
     }
-});
+}
+
+function displayNone(elements) {
+    for (const element of elements) {
+        document.getElementById(element).style.display = 'none';
+    }
+}
 
 function getForm(id) {
-    document.getElementById('add-money-parent').style.display = 'none';
-    document.getElementById('cash-out-parent').style.display = 'none';
-    document.getElementById('transfer-money-parent').style.display = 'none';
-    document.getElementById('get-bonus-parent').style.display = 'none';
-    document.getElementById('pay-bill-parant').style.display = 'none';
-    document.getElementById('transaction-parant').style.display = 'none';
-
+    displayNone(['add-money-parent', 'cash-out-parent', 'transfer-money-parent', 'get-bonus-parent', 'pay-bill-parant', 'transaction-parant']);
     document.getElementById(id).style.display = 'block';
 }
 
+/** Card Click Functionality */
 document.getElementById('add-money-option').addEventListener('click', function() {
     getForm('add-money-parent');
 });
@@ -74,4 +47,53 @@ document.getElementById('paybill-option').addEventListener('click', function() {
 
 document.getElementById('transaction-option').addEventListener('click', function() {
     getForm('transaction-parant');
+});
+
+/** Button Click Functionality */
+document.getElementById('add-money-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const currentBalance = getTextValue('current-balance');
+    const bank = document.getElementById('bank').value;
+    const accountNumber = getInputValue('account-number');
+    const addMoney = getInputValue('add-amount');
+    const pin = getInputValue('pin-number');
+
+    if (bank === 'Select a back') {
+        alert('Select a bank');
+        return;
+    } else if (accountNumber !== 1643496398 || pin !== 2244) {
+        alert('invalid credentials');
+        return;        
+    } else if (addMoney < 0) {
+        alert('Invalid Amount');
+        return;
+    } else {
+        document.getElementById('current-balance').innerText = currentBalance + addMoney;
+        document.getElementById('bank').innerHTML = `
+        <option disabled selected>Select a back</option>
+        <option>Dutch Bangla Bank</option>
+        <option>Brac Bank </option>
+        <option>Midland Bank</option>
+        `;
+        removeFieldValue(['account-number', 'add-amount', 'pin-number']);
+    }    
+});
+
+document.getElementById('withdraw-money-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const currentBalance = getTextValue('current-balance');
+    const agentNumber = getInputValue('agent-number');
+    const cashout = getInputValue('cashout-amount');
+    const pin = getInputValue('pin-number-cashout');
+
+    if (agentNumber !== 1643496398 || pin !== 2244) {
+        alert('invalid credentials');
+        return;        
+    } else if (cashout < 0 || cashout > currentBalance) {
+        alert('Invalid Amount');
+        return;
+    } else {
+        document.getElementById('current-balance').innerText = currentBalance - cashout;
+        removeFieldValue(['agent-number', 'cashout-amount', 'pin-number-cashout']);
+    }
 });
