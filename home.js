@@ -25,29 +25,12 @@ function getForm(id) {
 }
 
 /** Card Click Functionality */
-document.getElementById('add-money-option').addEventListener('click', function() {
-    getForm('add-money-parent');
-});
-
-document.getElementById('cashout-option').addEventListener('click', function() {
-    getForm('cash-out-parent');
-});
-
-document.getElementById('transfer-money-option').addEventListener('click', function() {
-    getForm('transfer-money-parent');
-});
-
-document.getElementById('get-bonus-option').addEventListener('click', function() {
-    getForm('get-bonus-parent');
-});
-
-document.getElementById('paybill-option').addEventListener('click', function() {
-    getForm('pay-bill-parant');
-});
-
-document.getElementById('transaction-option').addEventListener('click', function() {
-    getForm('transaction-parant');
-});
+const card_form = {'add-money-option' : 'add-money-parent', 'cashout-option' : 'cash-out-parent', 'transfer-money-option' : 'transfer-money-parent', 'get-bonus-option' : 'get-bonus-parent', 'paybill-option' : 'pay-bill-parant', 'transaction-option' : 'transaction-parant'};
+for (const form in card_form) {
+    document.getElementById(form).addEventListener('click', function() {
+        getForm(card_form[form]);
+    });
+}
 
 /** Button Click Functionality */
 document.getElementById('add-money-btn').addEventListener('click', function(e) {
