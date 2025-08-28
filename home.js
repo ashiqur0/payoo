@@ -23,9 +23,24 @@ function displayNone(elements) {
     }
 }
 
+function removeStyle(card_form) {
+    for (const card in card_form) {
+        document.getElementById(card).classList.remove('bg-[#0874f20d]', 'border-[#0874F2]');
+        document.getElementById(card).classList.add('border-gray-300');
+        document.getElementById(card).children[1].classList.remove('text-blue-500', 'font-semibold');
+    }
+}
+
 function getForm(id) {
     displayNone(['add-money-form', 'cash-out-form', 'transfer-money-form', 'get-bonus-form', 'pay-bill-form', 'transaction-form']);
     document.getElementById(id).style.display = 'block';
+}
+
+function getStyle(card) {
+    removeStyle(card_form);
+    document.getElementById(card).classList.remove('border-gray-300');
+    document.getElementById(card).classList.add('bg-[#0874f20d]', 'border-[#0874F2]');
+    document.getElementById(card).children[1].classList.add('text-blue-500', 'font-semibold');
 }
 
 /** Card Click Functionality */
@@ -33,6 +48,7 @@ const card_form = {'add-money-card' : 'add-money-form', 'cashout-card' : 'cash-o
 for (const card in card_form) {
     document.getElementById(card).addEventListener('click', function() {
         getForm(card_form[card]);
+        getStyle(card);
     });
 }
 
