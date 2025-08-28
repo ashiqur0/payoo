@@ -96,11 +96,11 @@
             <h1 class="text-[18px] font-semibold">Add Money</h1>
             <form class="p-6 mt-4 bg-white rounded-2xl">
                 <div>
-                    <h1 class="font-semibold">Select a back</h1>
+                    <h1 class="font-semibold">Select a bank</h1>
                     <select id="bank" class="select bg-[#f4f5f7] mt-3 w-full rounded-3xl">
-                        <option disabled selected>Select a back</option>
+                        <option disabled selected>Select a bank</option>
                         <option>Dutch Bangla Bank</option>
-                        <option>Brac Bank </option>
+                        <option>Brac Bank</option>
                         <option>Midland Bank</option>
                     </select>
                 </div>
@@ -154,31 +154,66 @@
             <form class="p-6 mt-4 bg-white rounded-2xl">
                 <div class="">
                     <label class="font-semibold" for="">User Account Number</label><br>
-                    <input id="agent-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                    <input id="receiver-number" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
                         placeholder="Enter 11 digit number" />
                 </div>
                 <div class="mt-5">
                     <label class="font-semibold" for="">Amount</label><br>
-                    <input id="cashout-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                    <input id="transfer-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
                         placeholder="Enter amount to transfer" />
                 </div>
                 <div class="mt-5">
                     <label class="font-semibold" for="">Pin Number</label><br>
-                    <input id="pin-number-cashout" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl" type="password"
+                    <input id="pin-number-transferMoney" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl" type="password"
                         placeholder="Enter 4 digit pin number" />
                 </div>
-                <button id="withdraw-money-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Send Now</button>
+                <button id="send-now-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Send Now</button>
             </form>
         </div>
 
         <!-- Get Bonus Form -->
         <div id="get-bonus-form" style="display: none;">
-            <h1 class="mb-5 font-semibold">Get Bonus</h1>
+            <h1 class="font-semibold">Get Bonus</h1>
+            <form class="p-6 mt-4 bg-white rounded-2xl">
+                <div class="">
+                    <label class="font-semibold" for="">Enter Bonus Coupon</label><br>
+                    <input id="coupon" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter your coupon" />
+                </div>
+                <button id="get-bonus-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Get Bonus</button>
+            </form>
         </div>
 
         <!-- Pay Bill Form -->
         <div id="pay-bill-form" style="display: none;">
-            <h1 class="mb-5 font-semibold">Pay Bill</h1>
+            <h1 class="font-semibold">Pay Bill</h1>
+            <form class="p-6 mt-4 bg-white rounded-2xl">
+                <div>
+                    <h1 class="font-semibold">Select To Pay</h1>
+                    <select id="pay" class="select bg-[#f4f5f7] mt-3 w-full rounded-3xl">
+                        <option disabled selected>Select bank</option>
+                        <option>Dutch Bangla Bank</option>
+                        <option>Brac Bank</option>
+                        <option>Midland Bank</option>
+                    </select>
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Biller Account Number</label><br>
+                    <input id="biller-id" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Enter account number" />
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Amount to Pay</label><br>
+                    <input id="pay-amount" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl"
+                        placeholder="Add Amount to pay" />
+                </div>
+                <div class="mt-5">
+                    <label class="font-semibold" for="">Pin Number</label><br>
+                    <input id="pin-number-payBill" class="input bg-[#f4f5f7] mt-3 w-full rounded-3xl" type="password"
+                        placeholder="Enter 4 digit pin number" />
+                </div>
+                <button id="pay-bill-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Pay Now</button>
+            </form>
         </div>
 
         <!-- Transaction Form -->
