@@ -1,6 +1,16 @@
 /** Shared Code / Reusable Function */
 
 const transactionData = [];
+function setTransactionData(data) {
+    const tData = {
+        icon : data[0],
+        name : data[1],
+        amount : data[2],
+        date : new Date().toLocaleTimeString()
+    };
+
+    transactionData.push(tData);
+}
 
 function getTextNumber(id) {
     return parseInt(document.getElementById(id).innerText);
@@ -109,14 +119,7 @@ document.getElementById('add-money-btn').addEventListener('click', function(e) {
         removeFieldValue(['account-number', 'add-amount', 'pin-number']);
     }
 
-    const data = {
-        icon : './assets/wallet1.png',
-        name : 'Add Money',
-        amount : addMoney,
-        date : new Date().toLocaleTimeString()
-    };
-
-    transactionData.push(data);
+    setTransactionData(['./assets/wallet1.png', 'Money Added', addMoney]);
 });
 
 document.getElementById('withdraw-money-btn').addEventListener('click', function(e) {
@@ -136,13 +139,6 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
         document.getElementById('current-balance').innerText = currentBalance - cashoutAmount;
         removeFieldValue(['agent-number', 'cashout-amount', 'pin-number-cashout']);
     }
-    
-    const data = {
-        icon : './assets/send1.png',
-        name : 'Cashout',
-        amount : cashoutAmount,
-        date : new Date().toLocaleTimeString()
-    };
 
-    transactionData.push(data);
+    setTransactionData(['./assets/send1.png', 'Cash Out', cashoutAmount]);
 });
