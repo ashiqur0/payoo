@@ -47,10 +47,10 @@ function getForm(id) {
             <div class="flex justify-between items-center bg-white rounded-lg p-3 mb-3">
                     <div class="flex items-center">
                         <div class="rounded-full p-3 bg-[#f4f5f7]">
-                            <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                            <img src="${transactionData[i].icon}" alt="" class="mx-auto">
                         </div>
                         <div class="ml-3">
-                            <h1>${transactionData[i].name}</h1>
+                            <h1>${transactionData[i].name} : ${transactionData[i].amount} Tk</h1>
                             <p>${transactionData[i].date}</p>
                         </div>
                     </div>
@@ -110,7 +110,9 @@ document.getElementById('add-money-btn').addEventListener('click', function(e) {
     }
 
     const data = {
+        icon : './assets/wallet1.png',
         name : 'Add Money',
+        amount : addMoney,
         date : new Date().toLocaleTimeString()
     };
 
@@ -121,22 +123,24 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
     e.preventDefault();
     const currentBalance = getTextNumber('current-balance');
     const agentNumber = getInputValueNumber('agent-number');
-    const cashout = getInputValueNumber('cashout-amount');
+    const cashoutAmount = getInputValueNumber('cashout-amount');
     const pin = getInputValueNumber('pin-number-cashout');
 
     if (agentNumber !== 1643496398 || pin !== 2244) {
         alert('invalid credentials');
         return;        
-    } else if (cashout < 0 || cashout > currentBalance) {
+    } else if (cashoutAmount < 0 || cashoutAmount > currentBalance) {
         alert('Invalid Amount');
         return;
     } else {
-        document.getElementById('current-balance').innerText = currentBalance - cashout;
+        document.getElementById('current-balance').innerText = currentBalance - cashoutAmount;
         removeFieldValue(['agent-number', 'cashout-amount', 'pin-number-cashout']);
     }
     
     const data = {
+        icon : './assets/send1.png',
         name : 'Cashout',
+        amount : cashoutAmount,
         date : new Date().toLocaleTimeString()
     };
 
