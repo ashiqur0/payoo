@@ -1,4 +1,7 @@
 /** Shared Code / Reusable Function */
+
+const transactionData = [];
+
 function getTextNumber(id) {
     return parseInt(document.getElementById(id).innerText);
 }
@@ -32,11 +35,36 @@ function removeStyle(card_form) {
 }
 
 function getForm(id) {
-    displayNone(['add-money-form', 'cash-out-form', 'transfer-money-form', 'get-bonus-form', 'pay-bill-form', 'transaction-form']);
+    displayNone(['add-money-form', 'cash-out-form', 'transfer-money-form', 'get-bonus-form', 'pay-bill-form', 'transaction-data']);
+
+    if (id === 'transaction-data') {
+        const transactionContainer = document.getElementById('transaction-container');
+        transactionContainer.innerText = '';
+
+        for (let i = transactionData.length - 1; i >= 0 && i > transactionData.length - 1 - 4; i--) {
+            const div = document.createElement('div');
+            div.innerHTML = `
+            <div class="flex justify-between items-center bg-white rounded-lg p-3 mb-3">
+                    <div class="flex items-center">
+                        <div class="rounded-full p-3 bg-[#f4f5f7]">
+                            <img src="./assets/wallet1.png" alt="" class="mx-auto">
+                        </div>
+                        <div class="ml-3">
+                            <h1>${transactionData[i].name}</h1>
+                            <p>${transactionData[i].date}</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            `;
+            transactionContainer.appendChild(div);
+        }
+    }
+    
     document.getElementById(id).style.display = 'block';
 }
 
-function getStyle(card) {
+function dynamicCardStyle(card) {
     removeStyle(card_form);
     document.getElementById(card).classList.remove('border-gray-300');
     document.getElementById(card).classList.add('bg-[#0874f20d]', 'border-[#0874F2]');
@@ -44,11 +72,11 @@ function getStyle(card) {
 }
 
 /** Card Click Functionality */
-const card_form = {'add-money-card' : 'add-money-form', 'cashout-card' : 'cash-out-form', 'transfer-money-card' : 'transfer-money-form', 'get-bonus-card' : 'get-bonus-form', 'paybill-card' : 'pay-bill-form', 'transaction-card' : 'transaction-form'};
+const card_form = {'add-money-card' : 'add-money-form', 'cashout-card' : 'cash-out-form', 'transfer-money-card' : 'transfer-money-form', 'get-bonus-card' : 'get-bonus-form', 'paybill-card' : 'pay-bill-form', 'transaction-card' : 'transaction-data'};
 for (const card in card_form) {
     document.getElementById(card).addEventListener('click', function() {
         getForm(card_form[card]);
-        getStyle(card);
+        dynamicCardStyle(card);
     });
 }
 
@@ -79,7 +107,14 @@ document.getElementById('add-money-btn').addEventListener('click', function(e) {
         <option>Midland Bank</option>
         `;
         removeFieldValue(['account-number', 'add-amount', 'pin-number']);
-    }    
+    }
+
+    const data = {
+        name : 'Add Money',
+        date : new Date().toLocaleTimeString()
+    };
+
+    transactionData.push(data);
 });
 
 document.getElementById('withdraw-money-btn').addEventListener('click', function(e) {
@@ -99,4 +134,11 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
         document.getElementById('current-balance').innerText = currentBalance - cashout;
         removeFieldValue(['agent-number', 'cashout-amount', 'pin-number-cashout']);
     }
+    
+    const data = {
+        name : 'Cashout',
+        date : new Date().toLocaleTimeString()
+    };
+
+    transactionData.push(data);
 });
