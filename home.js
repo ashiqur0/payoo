@@ -1,10 +1,14 @@
 /** Shared Code / Reusable Function */
-function getTextValue(id) {
+function getTextNumber(id) {
     return parseInt(document.getElementById(id).innerText);
 }
 
-function getInputValue(id) {
+function getInputValueNumber(id) {
     return parseInt(document.getElementById(id).value);
+}
+
+function getInputValue(id) {
+    return document.getElementById(id).value;
 }
 
 function removeFieldValue(fieldValue) {
@@ -20,26 +24,26 @@ function displayNone(elements) {
 }
 
 function getForm(id) {
-    displayNone(['add-money-parent', 'cash-out-parent', 'transfer-money-parent', 'get-bonus-parent', 'pay-bill-parant', 'transaction-parant']);
+    displayNone(['add-money-form', 'cash-out-form', 'transfer-money-form', 'get-bonus-form', 'pay-bill-form', 'transaction-form']);
     document.getElementById(id).style.display = 'block';
 }
 
 /** Card Click Functionality */
-const card_form = {'add-money-option' : 'add-money-parent', 'cashout-option' : 'cash-out-parent', 'transfer-money-option' : 'transfer-money-parent', 'get-bonus-option' : 'get-bonus-parent', 'paybill-option' : 'pay-bill-parant', 'transaction-option' : 'transaction-parant'};
-for (const form in card_form) {
-    document.getElementById(form).addEventListener('click', function() {
-        getForm(card_form[form]);
+const card_form = {'add-money-card' : 'add-money-form', 'cashout-card' : 'cash-out-form', 'transfer-money-card' : 'transfer-money-form', 'get-bonus-card' : 'get-bonus-form', 'paybill-card' : 'pay-bill-form', 'transaction-card' : 'transaction-form'};
+for (const card in card_form) {
+    document.getElementById(card).addEventListener('click', function() {
+        getForm(card_form[card]);
     });
 }
 
 /** Button Click Functionality */
 document.getElementById('add-money-btn').addEventListener('click', function(e) {
     e.preventDefault();
-    const currentBalance = getTextValue('current-balance');
-    const bank = document.getElementById('bank').value;
-    const accountNumber = getInputValue('account-number');
-    const addMoney = getInputValue('add-amount');
-    const pin = getInputValue('pin-number');
+    const currentBalance = getTextNumber('current-balance');
+    const bank = getInputValue('bank');
+    const accountNumber = getInputValueNumber('account-number');
+    const addMoney = getInputValueNumber('add-amount');
+    const pin = getInputValueNumber('pin-number');
 
     if (bank === 'Select a back') {
         alert('Select a bank');
@@ -64,10 +68,10 @@ document.getElementById('add-money-btn').addEventListener('click', function(e) {
 
 document.getElementById('withdraw-money-btn').addEventListener('click', function(e) {
     e.preventDefault();
-    const currentBalance = getTextValue('current-balance');
-    const agentNumber = getInputValue('agent-number');
-    const cashout = getInputValue('cashout-amount');
-    const pin = getInputValue('pin-number-cashout');
+    const currentBalance = getTextNumber('current-balance');
+    const agentNumber = getInputValueNumber('agent-number');
+    const cashout = getInputValueNumber('cashout-amount');
+    const pin = getInputValueNumber('pin-number-cashout');
 
     if (agentNumber !== 1643496398 || pin !== 2244) {
         alert('invalid credentials');

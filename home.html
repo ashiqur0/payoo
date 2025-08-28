@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <!-- Daisy UI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +20,10 @@
 
 <body class="bg-[#f4f5f7] h-[100vw] font-outfit">
 
+    <!-- Header -->
     <header class="max-w-lg mx-auto bg-white rounded-b-3xl py-6">
+
+        <!-- Nav -->
         <nav class="min-h-[50px] flex justify-between items-center border-b-1 border-gray-400 pb-6 px-6">
             <div class="flex jsutify-center items-center">
                 <img src="./assets/Group.png" alt="" class="h-[50px]">
@@ -31,42 +40,59 @@
             </div>
         </nav>
 
+        <!-- Welcome -->
         <div class="max-w-lg mx-auto p-6">
             <h1 class="text-[24px] font-bold">🔥 Welcome to Payooo!</h1>
             <p class="text-[#08080880]">Enjoy easy and convenient financial services with us. Cash out charge is low and
             </p>
         </div>
 
+        <!-- Form Card Function -->
         <div class="max-w-lg mx-auto px-6 h-50 grid grid-cols-3 gap-4">
-            <div id="add-money-option" class="border-2 border-gray-300 p-3 rounded-lg">
+
+            <!-- Add Money -->
+            <div id="add-money-card" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/wallet1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Add Money</h2>
             </div>
-            <div id="cashout-option" class="border-2 border-gray-300 p-3 rounded-lg">
+
+            <!-- Cash Out -->
+            <div id="cashout-card" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/send1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Cashout</h2>
             </div>
-            <div id="transfer-money-option" class="border-2 border-gray-300 p-3 rounded-lg">
+
+            <!-- Transfer Money -->
+            <div id="transfer-money-card" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/money1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Transfer Money</h2>
             </div>
-            <div id="get-bonus-option" class="border-2 border-gray-300 p-3 rounded-lg">
+
+            <!-- Get Bonus -->
+            <div id="get-bonus-card" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/bonus1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Get Bonus</h2>
             </div>
-            <div id="paybill-option" class="border-2 border-gray-300 p-3 rounded-lg">
+
+            <!-- Pay Bill -->
+            <div id="paybill-card" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/wallet1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Pay Bill</h2>
             </div>
-            <div id="transaction-option" class="border-2 border-gray-300 p-3 rounded-lg">
+
+            <!-- Transaction -->
+            <div id="transaction-card" class="border-2 border-gray-300 p-3 rounded-lg">
                 <img src="./assets/transaction1.png" alt="" class="mx-auto">
                 <h2 class="text-center mt-2">Transactions</h2>
             </div>
         </div>
     </header>
 
+    <!-- Form Section -->
     <section class="all-form-section max-w-lg mx-auto p-6 pb-19">
-        <div id="add-money-parent" style="display: none;">
+
+        <!-- Add Money Form -->
+        <div id="add-money-form" style="display: none;">
             <h1 class="text-[18px] font-semibold">Add Money</h1>
             <form class="p-6 bg-white rounded-2xl mt-6">
                 <div>
@@ -97,7 +123,9 @@
                     Money</button>
             </form>
         </div>
-        <div id="cash-out-parent" style="display: none;">
+
+        <!-- Cash Out Form -->
+        <div id="cash-out-form" style="display: none;">
             <h1 class="my-5 font-bold">Cash out</h1>
             <form class="p-6 bg-white rounded-2xl mt-6">
                 <div class="mt-5">
@@ -118,16 +146,24 @@
                 <button id="withdraw-money-btn" class="btn mt-5 w-full rounded-3xl bg-[#0874f2] text-white">Withdraw Money</button>
             </form>
         </div>
-        <div id="transfer-money-parent" style="display: none;">
+    
+        <!-- Transfer Money Form -->
+        <div id="transfer-money-form" style="display: none;">
             <h1 class="my-5 font-bold">Transfer Money</h1>
         </div>
-        <div id="get-bonus-parent" style="display: none;">
+
+        <!-- Get Bonus Form -->
+        <div id="get-bonus-form" style="display: none;">
             <h1 class="my-5 font-bold">Get Bonus</h1>
         </div>
-        <div id="pay-bill-parant" style="display: none;">
+
+        <!-- Pay Bill Form -->
+        <div id="pay-bill-form" style="display: none;">
             <h1 class="my-5 font-bold">Pay Bill</h1>
         </div>
-        <div id="transaction-parant" style="display: none;">
+
+        <!-- Transaction Form -->
+        <div id="transaction-form" style="display: none;">
             <h1 class="my-5 font-bold">Transactions</h1>
         </div>
     </section>
